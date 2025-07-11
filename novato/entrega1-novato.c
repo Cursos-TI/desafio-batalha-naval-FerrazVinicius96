@@ -7,21 +7,32 @@ int main(){
     // Declaração das variáveis do tabuleiro e navio
     int tabuleiro[TAM_TABULEIRO][TAM_TABULEIRO] = {0};
     int navio_h[TAM_NAVIO] = {3, 3, 3};
-    //int navio_v[TAM_NAVIO] = {3, 3, 3};
+    int navio_v[TAM_NAVIO] = {3, 3, 3};
 
     // Declaração da posição dos navios
     int linha_h = 0, coluna_h = 0;
-    //int linha_v = 2, coluna_v = 3;
+    int linha_v = 2, coluna_v = 3;
 
-    // Verificação da posição no tamanho do tabuleiro
+    // Verificação da posição do navio horizontal no tamanho do tabuleiro
     if(linha_h + TAM_NAVIO <= TAM_TABULEIRO && coluna_h + TAM_NAVIO <= TAM_TABULEIRO){
-        // Alteração dos elementos do tabuleiro pelo navio
+        // Posicionamento do navio horizontal
         for(int i=0;i<TAM_NAVIO;i++){
             tabuleiro[linha_h][coluna_h + i] = navio_h[i];
         }
     }else{
-        printf("Posição do navio extrapola tamanho do tabuleiro.");
+        printf("Posição do navio horizontal extrapola tamanho do tabuleiro.");
     }
+
+    // Verificação da posição do navio vertical no tamanho do tabuleiro
+    if(linha_v + TAM_NAVIO <= TAM_TABULEIRO && coluna_v + TAM_NAVIO <= TAM_TABULEIRO){
+        // Posicionamento do navio horizontal
+        for(int i=0;i<TAM_NAVIO;i++){
+            tabuleiro[linha_v + i][coluna_v] = navio_v[i];
+        }
+    }else{
+        printf("Posição do navio vertical extrapola tamanho do tabuleiro.");
+    }
+
     // Impressão do tabuleiro
     for(int i=0;i<TAM_TABULEIRO;i++){
         for(int j=0;j<TAM_TABULEIRO;j++){
