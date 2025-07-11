@@ -24,10 +24,16 @@ int main(){
     }
 
     // Verificação da posição do navio vertical no tamanho do tabuleiro
-    if(linha_v + TAM_NAVIO <= TAM_TABULEIRO && coluna_v + TAM_NAVIO <= TAM_TABULEIRO){
-        // Posicionamento do navio horizontal
+    if(linha_v + TAM_NAVIO <= TAM_TABULEIRO){
+        // Posicionamento do navio vertical
         for(int i=0;i<TAM_NAVIO;i++){
-            tabuleiro[linha_v + i][coluna_v] = navio_v[i];
+            // Verificação de sobreposição
+            if(tabuleiro[linha_v + i][coluna_v] == 0){
+                tabuleiro[linha_v + i][coluna_v] = navio_v[i];
+            }else{
+                printf("Sobreposição de navios detectada.\n");
+                break;
+            }
         }
     }else{
         printf("Posição do navio vertical extrapola tamanho do tabuleiro.");
